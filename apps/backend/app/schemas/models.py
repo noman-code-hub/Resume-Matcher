@@ -674,3 +674,17 @@ class StatusResponse(BaseModel):
     llm_healthy: bool
     has_master_resume: bool
     database_stats: dict[str, Any]
+
+# Resume Match Models
+class MatchRequest(BaseModel):
+    """Request to match a resume against a job description."""
+    resume_id: str | None = None
+    job_description: str | None = None
+
+
+class MatchResponse(BaseModel):
+    """Response for resume match analysis."""
+    score: float
+    keywords_matched: list[str]
+    missing_skills: list[str]
+    summary: str | None = None

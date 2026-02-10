@@ -560,6 +560,57 @@
       "failedToConfirm": "Failed to confirm resume. Please try again."
     }
   },
+  "career": {
+    "title": "AI Career Path Generator",
+    "subtitle": "Personalized roadmap to your dream role",
+    "goalLabel": "Career Goal",
+    "goalPlaceholder": "e.g. Senior Frontend Developer",
+    "skillsLabel": "Current Skills",
+    "skillsPlaceholder": "React, TypeScript, CSS...",
+    "experienceLabel": "Experience",
+    "experiencePlaceholder": "e.g. 2 years as Junior Dev",
+    "educationLabel": "Education",
+    "educationPlaceholder": "e.g. BS in Computer Science",
+    "generateButton": "Generate Roadmap",
+    "analyzing": "Analyzing...",
+    "strategyTitle": "AI Strategy",
+    "timelineLabel": "Timeline: {timeline}",
+    "actionPlanTitle": "Action Plan",
+    "coreSkillsTitle": "Core Skills",
+    "tipTitle": "Expert Tip",
+    "tipSubTitle": "Progressive Mastery",
+    "awaitingInput": "Ready for Launch",
+    "roadmapWillAppear": "Roadmap will appear after analysis",
+    "aspirationsTitle": "Your Aspirations",
+    "errors": {
+      "noGoal": "Please enter a career goal",
+      "failedToGenerate": "Failed to generate career path"
+    }
+  },
+  "advisor": {
+    "title": "AI Career Advisor",
+    "subtitle": "Discover your next professional milestone",
+    "currentRoleLabel": "Current Role",
+    "currentRolePlaceholder": "e.g. Frontend Developer",
+    "skillsLabel": "Current Skills",
+    "skillsPlaceholder": "React, TypeScript, CSS...",
+    "experienceLabel": "Experience",
+    "experiencePlaceholder": "e.g. 1 year",
+    "educationLabel": "Education",
+    "educationPlaceholder": "e.g. BS Computer Science",
+    "generateButton": "Get Career Advice",
+    "analyzing": "Analyzing...",
+    "stepsTitle": "Next Career Steps",
+    "skillsToLearnTitle": "Skills to Learn:",
+    "timelineTitle": "Estimated Timeline:",
+    "summaryTitle": "Summary:",
+    "awaitingInput": "Discover Your Path",
+    "recommendationsWillAppear": "Your recommendations will appear here",
+    "errors": {
+      "noRole": "Please enter your current role",
+      "failedToGenerate": "Failed to generate career advice"
+    }
+  },
   "settings": {
     "title": "Settings",
     "subtitle": "Configure your preferences",

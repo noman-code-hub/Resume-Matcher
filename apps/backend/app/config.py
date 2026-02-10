@@ -121,7 +121,7 @@ class Settings(BaseSettings):
 
     # LLM Configuration
     llm_provider: Literal[
-        "openai", "anthropic", "openrouter", "gemini", "deepseek", "ollama"
+        "openai", "anthropic", "openrouter", "gemini", "deepseek", "ollama", "local"
     ] = "openai"
     llm_model: str = "gpt-5-nano-2025-08-07"
     llm_api_key: str = ""

@@ -512,7 +512,15 @@ def calculate_keyword_match(
         return 0.0
 
     # SVC-010: Use word boundary matching instead of substring
-    matched = sum(1 for kw in all_keywords if _keyword_in_text(kw, resume_text))
+    matched_keywords = [kw for kw in all_keywords if _keyword_in_text(kw, resume_text)]
+    matched = len(matched_keywords)
+    
+    # Debug logging
+    logger.warning(f"DEBUG: Total JD keywords: {len(all_keywords)} - {list(all_keywords)}")
+    logger.warning(f"DEBUG: Matched keywords: {matched} - {matched_keywords}")
+    logger.warning(f"DEBUG: Resume text (first 200 chars): {resume_text[:200]}")
+    logger.warning(f"DEBUG: Match percentage: {matched}/{len(all_keywords)} = {(matched / len(all_keywords)) * 100}%")
+    
     return (matched / len(all_keywords)) * 100
 
 
@@ -582,7 +590,9 @@ def _extract_all_text_cached(data_json: str) -> str:
         if isinstance(certs, list):
             parts.extend(str(c) for c in certs)
 
-    return " ".join(p for p in parts if p)
+    res = " ".join(p for p in parts if p)
+    logger.warning(f"DEBUG: Final extracted resume text: {res[:200]}...")
+    return res
 
 
 def _deep_copy(data: dict[str, Any]) -> dict[str, Any]:

@@ -10,6 +10,8 @@ from pydantic import BaseModel
 
 from app.config import settings
 
+logger = logging.getLogger(__name__)
+
 # LLM timeout configuration (seconds) - base values
 LLM_TIMEOUT_HEALTH_CHECK = 30
 LLM_TIMEOUT_COMPLETION = 120
@@ -313,8 +315,8 @@ async def check_llm_health(
     if config is None:
         config = get_llm_config()
 
-    # Check if API key is configured (except for Ollama)
-    if config.provider != "ollama" and not config.api_key:
+    # Check if API key is configured (except for Ollama and local mock)
+    if config.provider not in ["ollama", "local"] and not config.api_key:
         return {
             "healthy": False,
             "provider": config.provider,
@@ -420,6 +422,10 @@ async def complete(
     messages.append({"role": "user", "content": prompt})
 
     try:
+        if config.provider == "local":
+            logger.info("Using local mock mode for LLM completion")
+            return f"Mock response for prompt: {prompt[:50]}..."
+
         # Pass API key directly to avoid race conditions with global os.environ
         kwargs: dict[str, Any] = {
             "model": model_name,
@@ -642,6 +648,76 @@ async def complete_json(
     last_error = None
     for attempt in range(retries + 1):
         try:
+            if config.provider == "local":
+                logger.info("Using local mock mode for JSON completion")
+                if "parse this resume" in prompt.lower() or "resume to parse" in prompt.lower():
+                    # Extract a name if possible from the first few lines
+                    lines = prompt.split("\n")
+                    name = "Mock Candidate"
+                    for line in lines:
+                        clean = line.strip()
+                        if len(clean) > 2 and "{" not in clean and "}" not in clean and ":" not in clean:
+                            name = clean
+                            break
+                    
+                    # Extract some skills from the resume text
+                    # Look for capitalized words (likely to be technologies/skills)
+                    found_words = re.findall(r'\b[A-Z][a-zA-Z]{2,15}\b', prompt)
+                    mock_skills = list(set(found_words))
+                    
+                    # If we didn't find enough, add common ones
+                    if len(mock_skills) < 3:
+                        mock_skills.extend(["Software", "Development", "Python"])
+                        mock_skills = list(set(mock_skills))
+
+                    return {
+                        "personalInfo": {
+                            "name": name,
+                            "title": "Professional (Local Mock)",
+                            "email": "local@example.com",
+                            "phone": "+1-000-0000",
+                            "location": "Local Environment"
+                        },
+                        "summary": "This is a mock resume parsed in local mode. Skills: " + ", ".join(mock_skills),
+                        "workExperience": [
+                            {
+                                "id": 1,
+                                "title": "Senior Contributor",
+                                "company": "Experience Ltd",
+                                "years": "2020 - Present",
+                                "description": ["Working with " + ", ".join(mock_skills[:5])]
+                            }
+                        ],
+                        "education": [],
+                        "personalProjects": [],
+                        "additional": {
+                            "technicalSkills": mock_skills,
+                            "languages": ["English"]
+                        },
+                        "customSections": {}
+                    }
+                elif "extract job requirements" in prompt.lower() or "job description:" in prompt.lower():
+                    # Extract capitalized words as keywords (same as resume parser)
+                    found_tech = re.findall(r'\b[A-Z][a-zA-Z]{2,15}\b', prompt)
+                    keywords = list(set(found_tech))
+                    
+                    # If we didn't find enough, use defaults
+                    if len(keywords) < 3:
+                        keywords = ["Software", "Development", "Communication"]
+
+                    return {
+                        "required_skills": keywords[:10],
+                        "preferred_skills": [],
+                        "experience_requirements": ["Not specified"],
+                        "education_requirements": ["Not specified"],
+                        "key_responsibilities": ["Refer to job description"],
+                        "keywords": keywords[:15],
+                        "experience_years": 1,
+                        "seniority_level": "intermediate"
+                    }
+                
+                return {"message": "Local mock response", "data": {}}
+
             # Build request kwargs
             # Pass API key directly to avoid race conditions with global os.environ
             kwargs: dict[str, Any] = {

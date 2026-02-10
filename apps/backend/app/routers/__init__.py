@@ -5,6 +5,8 @@ from app.routers.enrichment import router as enrichment_router
 from app.routers.health import router as health_router
 from app.routers.jobs import router as jobs_router
 from app.routers.resumes import router as resumes_router
+from app.routers.match import router as match_router
+from app.routers.career import router as career_router
 
 __all__ = [
     "resumes_router",
@@ -12,4 +14,6 @@ __all__ = [
     "config_router",
     "health_router",
     "enrichment_router",
+    "match_router",
+    "career_router",
 ]

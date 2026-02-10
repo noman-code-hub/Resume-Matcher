@@ -47,6 +47,16 @@ class Database:
         """Improvement results table."""
         return self.db.table("improvements")
 
+    @property
+    def career_paths(self) -> Table:
+        """Career paths table."""
+        return self.db.table("career_paths")
+
+    @property
+    def career_recommendations(self) -> Table:
+        """Career recommendations table."""
+        return self.db.table("career_recommendations")
+
     def close(self) -> None:
         """Close database connection."""
         if self._db is not None:
@@ -247,6 +257,90 @@ class Database:
         )
         return result[0] if result else None
 
+    # Career path operations
+    def create_career_path(
+        self,
+        uid: str | None,
+        goal: str,
+        skills: list[str],
+        experience: str,
+        education: str,
+        result: dict[str, Any],
+    ) -> dict[str, Any]:
+        """Create a new career path entry."""
+        career_path_id = str(uuid4())
+        now = datetime.now(timezone.utc).isoformat()
+
+        doc = {
+            "career_path_id": career_path_id,
+            "uid": uid,
+            "goal": goal,
+            "skills": skills,
+            "experience": experience,
+            "education": education,
+            "result": result,
+            "created_at": now,
+        }
+        self.career_paths.insert(doc)
+        return doc
+
+    def get_career_path(self, career_path_id: str) -> dict[str, Any] | None:
+        """Get career path by ID."""
+        CP = Query()
+        result = self.career_paths.search(CP.career_path_id == career_path_id)
+        return result[0] if result else None
+
+    def list_career_paths(self, uid: str | None = None) -> list[dict[str, Any]]:
+        """List all career paths, optionally filtered by UID."""
+        if uid:
+            CP = Query()
+            return list(self.career_paths.search(CP.uid == uid))
+        return list(self.career_paths.all())
+
+    # Career advisor operations
+    def create_career_recommendation(
+        self,
+        uid: str | None,
+        currentRole: str,
+        skills: list[str],
+        experience: str,
+        education: str,
+        aiRecommendations: dict[str, Any],
+    ) -> dict[str, Any]:
+        """Create a new career recommendation entry."""
+        recommendation_id = str(uuid4())
+        now = datetime.now(timezone.utc).isoformat()
+
+        doc = {
+            "recommendation_id": recommendation_id,
+            "uid": uid,
+            "currentRole": currentRole,
+            "skills": skills,
+            "experience": experience,
+            "education": education,
+            "aiRecommendations": aiRecommendations,
+            "created_at": now,
+        }
+        self.career_recommendations.insert(doc)
+        return doc
+
+    def get_career_recommendation(self, recommendation_id: str) -> dict[str, Any] | None:
+        """Get career recommendation by ID."""
+        CR = Query()
+        result = self.career_recommendations.search(
+            CR.recommendation_id == recommendation_id
+        )
+        return result[0] if result else None
+
+    def list_career_recommendations(
+        self, uid: str | None = None
+    ) -> list[dict[str, Any]]:
+        """List all career recommendations, optionally filtered by UID."""
+        if uid:
+            CR = Query()
+            return list(self.career_recommendations.search(CR.uid == uid))
+        return list(self.career_recommendations.all())
+
     # Stats
     def get_stats(self) -> dict[str, Any]:
         """Get database statistics."""
@@ -254,6 +348,8 @@ class Database:
             "total_resumes": len(self.resumes),
             "total_jobs": len(self.jobs),
             "total_improvements": len(self.improvements),
+            "total_career_paths": len(self.career_paths),
+            "total_career_recommendations": len(self.career_recommendations),
             "has_master_resume": self.get_master_resume() is not None,
         }
 
@@ -263,6 +359,8 @@ class Database:
         self.resumes.truncate()
         self.jobs.truncate()
         self.improvements.truncate()
+        self.career_paths.truncate()
+        self.career_recommendations.truncate()
 
         # Clear uploads directory
         uploads_dir = settings.data_dir / "uploads"

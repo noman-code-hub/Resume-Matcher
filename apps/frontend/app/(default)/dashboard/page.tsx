@@ -17,6 +17,8 @@ import RefreshCw from 'lucide-react/dist/esm/icons/refresh-cw';
 import Plus from 'lucide-react/dist/esm/icons/plus';
 import Settings from 'lucide-react/dist/esm/icons/settings';
 import AlertTriangle from 'lucide-react/dist/esm/icons/alert-triangle';
+import Rocket from 'lucide-react/dist/esm/icons/rocket';
+import Briefcase from 'lucide-react/dist/esm/icons/briefcase';
 
 import { fetchResume, fetchResumeList, deleteResume, type ResumeListItem } from '@/lib/api/resume';
 import { useStatusCache } from '@/lib/context/status-cache';
@@ -352,9 +354,51 @@ export default function DashboardPage() {
             >
               <Plus className="w-8 h-8" />
             </Button>
-            <p className="text-xs font-mono mt-4 uppercase text-green-700">
+            <p className="text-xs font-mono mt-4 uppercase text-green-700 font-bold">
               {t('dashboard.createResume')}
             </p>
+          </div>
+        </Card>
+
+        {/* 4. Career Path Generator */}
+        <Card
+          variant="interactive"
+          className="aspect-square h-full bg-black text-white"
+          onClick={() => router.push('/career')}
+        >
+          <div className="flex-1 flex flex-col justify-between">
+            <div className="w-14 h-14 border-2 border-white bg-blue-700 text-white flex items-center justify-center mb-4">
+              <Rocket className="w-8 h-8" />
+            </div>
+            <div>
+              <CardTitle className="text-xl uppercase tracking-tighter leading-tight">
+                Career <br /> Explorer
+              </CardTitle>
+              <CardDescription className="mt-2 text-white/60 group-hover:text-white uppercase text-[10px] font-mono font-bold">
+                {'// '} AI Roadmap Generator
+              </CardDescription>
+            </div>
+          </div>
+        </Card>
+
+        {/* 5. AI Career Advisor */}
+        <Card
+          variant="interactive"
+          className="aspect-square h-full bg-[#FACC15] text-black"
+          onClick={() => router.push('/advisor')}
+        >
+          <div className="flex-1 flex flex-col justify-between">
+            <div className="w-14 h-14 border-2 border-black bg-white text-black flex items-center justify-center mb-4">
+              <Briefcase className="w-8 h-8" />
+            </div>
+            <div>
+              <CardTitle className="text-xl uppercase tracking-tighter leading-tight">
+                Role <br /> Advisor
+              </CardTitle>
+              <CardDescription className="mt-2 text-black/60 group-hover:text-black uppercase text-[10px] font-mono font-bold">
+                {'// '} Next Step Analytics
+              </CardDescription>
+            </div>
           </div>
         </Card>
 
@@ -388,6 +432,6 @@ export default function DashboardPage() {
           variant="danger"
         />
       </SwissGrid>
-    </div>
+    </div >
   );
 }
