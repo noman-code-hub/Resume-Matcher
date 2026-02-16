@@ -33,7 +33,7 @@ Be specific and practical in your advice.
 """
 
 async def generate_career_advice_result(request: CareerAdvisorRequest) -> CareerAdvisorResult:
-    \"\"\"Generate career advice using LLM.\"\"\"
+    """Generate career advice using LLM."""
     
     prompt = CAREER_ADVISOR_PROMPT.format(
         currentRole=request.currentRole,
