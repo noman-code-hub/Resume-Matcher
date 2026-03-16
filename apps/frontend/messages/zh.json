@@ -568,6 +568,33 @@
       "failedToConfirm": "确认简历失败。请重试。"
     }
   },
+  "career": {
+    "title": "AI 职业路径生成器",
+    "subtitle": "通往梦想岗位的个性化路线图",
+    "goalLabel": "职业目标",
+    "goalPlaceholder": "例如：高级前端开发工程师",
+    "skillsLabel": "当前技能",
+    "skillsPlaceholder": "React, TypeScript, CSS...",
+    "experienceLabel": "经验",
+    "experiencePlaceholder": "例如：2 年初级开发经验",
+    "educationLabel": "教育背景",
+    "educationPlaceholder": "例如：计算机科学学士",
+    "generateButton": "生成路线图",
+    "analyzing": "分析中...",
+    "strategyTitle": "AI 策略",
+    "timelineLabel": "时间表：{timeline}",
+    "actionPlanTitle": "行动计划",
+    "coreSkillsTitle": "核心技能",
+    "tipTitle": "专家提示",
+    "tipSubTitle": "渐进式精通",
+    "awaitingInput": "准备启动",
+    "roadmapWillAppear": "分析后将显示路线图",
+    "aspirationsTitle": "您的愿景",
+    "errors": {
+      "noGoal": "请输入职业目标",
+      "failedToGenerate": "生成职业路径失败"
+    }
+  },
   "settings": {
     "title": "设置",
     "subtitle": "配置您的偏好",
@@ -809,6 +836,30 @@
       },
       "emptyTitle": "还没有外联消息。",
       "emptyDescription": "请在设置中启用外联消息生成，然后完成一次简历定制。"
+    }
+  },
+  "advisor": {
+    "title": "AI 职业顾问",
+    "subtitle": "发现您的下一个职业里程碑",
+    "currentRoleLabel": "当前角色",
+    "currentRolePlaceholder": "例如：前端开发工程师",
+    "skillsLabel": "当前技能",
+    "skillsPlaceholder": "React, TypeScript, CSS...",
+    "experienceLabel": "经验",
+    "experiencePlaceholder": "例如：1 年",
+    "educationLabel": "教育背景",
+    "educationPlaceholder": "例如：计算机科学学士",
+    "generateButton": "获取职业建议",
+    "analyzing": "分析中...",
+    "stepsTitle": "接下来的职业步骤",
+    "skillsToLearnTitle": "需要学习的技能：",
+    "timelineTitle": "预计时间表：",
+    "summaryTitle": "总结：",
+    "awaitingInput": "发现您的职业道路",
+    "recommendationsWillAppear": "分析后将显示您的建议",
+    "errors": {
+      "noRole": "请输入您的当前角色",
+      "failedToGenerate": "生成职业建议失败"
     }
   },
   "errors": {

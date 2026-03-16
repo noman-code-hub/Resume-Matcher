@@ -568,6 +568,33 @@
       "failedToConfirm": "Falha ao confirmar o currículo. Tente novamente."
     }
   },
+  "career": {
+    "title": "Gerador de Trajetória de Carreira IA",
+    "subtitle": "Roteiro personalizado para o seu cargo dos sonhos",
+    "goalLabel": "Objetivo de Carreira",
+    "goalPlaceholder": "ex: Desenvolvedor Frontend Sênior",
+    "skillsLabel": "Habilidades Atuais",
+    "skillsPlaceholder": "React, TypeScript, CSS...",
+    "experienceLabel": "Experiência",
+    "experiencePlaceholder": "ex: 2 anos como Dev Junior",
+    "educationLabel": "Educação",
+    "educationPlaceholder": "ex: Bacharel em Ciência da Computação",
+    "generateButton": "Gerar Roteiro",
+    "analyzing": "Analisando...",
+    "strategyTitle": "Estratégia IA",
+    "timelineLabel": "Cronograma: {timeline}",
+    "actionPlanTitle": "Plano de Ação",
+    "coreSkillsTitle": "Habilidades Principais",
+    "tipTitle": "Dica de Especialista",
+    "tipSubTitle": "Maestria Progressiva",
+    "awaitingInput": "Pronto para o Lançamento",
+    "roadmapWillAppear": "O roteiro aparecerá após a análise",
+    "aspirationsTitle": "Suas Aspirações",
+    "errors": {
+      "noGoal": "Por favor, insira um objetivo de carreira",
+      "failedToGenerate": "Falha ao gerar trajetória de carreira"
+    }
+  },
   "settings": {
     "title": "Configurações",
     "subtitle": "Configure suas preferências",
@@ -809,6 +836,30 @@
       },
       "emptyTitle": "Nenhuma mensagem de contato ainda.",
       "emptyDescription": "Habilite a geração de mensagem de contato em Configurações, depois personalize um currículo."
+    }
+  },
+  "advisor": {
+    "title": "Conselheiro de Carreira IA",
+    "subtitle": "Descubra seu próximo marco profissional",
+    "currentRoleLabel": "Cargo Atual",
+    "currentRolePlaceholder": "ex: Desenvolvedor Frontend",
+    "skillsLabel": "Habilidades Atuais",
+    "skillsPlaceholder": "React, TypeScript, CSS...",
+    "experienceLabel": "Experiência",
+    "experiencePlaceholder": "ex: 1 ano",
+    "educationLabel": "Educação",
+    "educationPlaceholder": "ex: Bacharel em Ciência da Computação",
+    "generateButton": "Obter Conselho",
+    "analyzing": "Analisando...",
+    "stepsTitle": "Próximos Passos de Carreira",
+    "skillsToLearnTitle": "Habilidades para Aprender:",
+    "timelineTitle": "Cronograma Estimado:",
+    "summaryTitle": "Resumo:",
+    "awaitingInput": "Descubra seu Caminho",
+    "recommendationsWillAppear": "Suas recomendações aparecerão aqui",
+    "errors": {
+      "noRole": "Por favor, insira seu cargo atual",
+      "failedToGenerate": "Falha ao gerar conselho de carreira"
     }
   },
   "errors": {

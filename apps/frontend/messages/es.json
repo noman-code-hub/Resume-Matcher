@@ -568,6 +568,33 @@
       "failedToConfirm": "No se pudo confirmar el currículum. Inténtalo de nuevo."
     }
   },
+  "career": {
+    "title": "Generador de Trayectoria Profesional IA",
+    "subtitle": "Hoja de ruta personalizada hacia tu rol soñado",
+    "goalLabel": "Objetivo de Carrera",
+    "goalPlaceholder": "p. ej. Desarrollador Frontend Senior",
+    "skillsLabel": "Habilidades Actuales",
+    "skillsPlaceholder": "React, TypeScript, CSS...",
+    "experienceLabel": "Experiencia",
+    "experiencePlaceholder": "p. ej. 2 años como Dev Junior",
+    "educationLabel": "Educación",
+    "educationPlaceholder": "p. ej. Grado en Informática",
+    "generateButton": "Generar Hoja de Ruta",
+    "analyzing": "Analizando...",
+    "strategyTitle": "Estrategia IA",
+    "timelineLabel": "Cronograma: {timeline}",
+    "actionPlanTitle": "Plan de Acción",
+    "coreSkillsTitle": "Habilidades Clave",
+    "tipTitle": "Consejo de Experto",
+    "tipSubTitle": "Maestría Progresiva",
+    "awaitingInput": "Listo para el Lanzamiento",
+    "roadmapWillAppear": "La hoja de ruta aparecerá después del análisis",
+    "aspirationsTitle": "Tus Aspiraciones",
+    "errors": {
+      "noGoal": "Por favor, ingresa un objetivo de carrera",
+      "failedToGenerate": "No se pudo generar la trayectoria profesional"
+    }
+  },
   "settings": {
     "title": "Configuración",
     "subtitle": "Configura tus preferencias",
@@ -809,6 +836,30 @@
       },
       "emptyTitle": "Todavía no hay mensaje de contacto.",
       "emptyDescription": "Activa la generación de mensajes en Ajustes y luego adapta un currículum."
+    }
+  },
+  "advisor": {
+    "title": "Asesor de Carrera IA",
+    "subtitle": "Descubre tu próximo hito profesional",
+    "currentRoleLabel": "Puesto Actual",
+    "currentRolePlaceholder": "p. ej. Desarrollador Frontend",
+    "skillsLabel": "Habilidades Actuales",
+    "skillsPlaceholder": "React, TypeScript, CSS...",
+    "experienceLabel": "Experiencia",
+    "experiencePlaceholder": "p. ej. 1 año",
+    "educationLabel": "Educación",
+    "educationPlaceholder": "p. ej. Grado en Informática",
+    "generateButton": "Obtener Asesoramiento",
+    "analyzing": "Analizando...",
+    "stepsTitle": "Próximos Pasos Profesionales",
+    "skillsToLearnTitle": "Habilidades a Aprender:",
+    "timelineTitle": "Cronograma Estimado:",
+    "summaryTitle": "Resumen:",
+    "awaitingInput": "Descubre tu Camino",
+    "recommendationsWillAppear": "Tus recomendaciones aparecerán aquí",
+    "errors": {
+      "noRole": "Por favor, ingresa tu puesto actual",
+      "failedToGenerate": "No se pudo generar el asesoramiento de carrera"
     }
   },
   "errors": {

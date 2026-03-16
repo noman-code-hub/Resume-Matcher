@@ -568,6 +568,33 @@
       "failedToConfirm": "履歴書の確定に失敗しました。もう一度お試しください。"
     }
   },
+  "career": {
+    "title": "AI キャリアパスジェネレーター",
+    "subtitle": "夢の仕事へのパーソナライズされたロードマップ",
+    "goalLabel": "キャリア目標",
+    "goalPlaceholder": "例：シニアフロントエンドエンジニア",
+    "skillsLabel": "現在のスキル",
+    "skillsPlaceholder": "React, TypeScript, CSS...",
+    "experienceLabel": "経験",
+    "experiencePlaceholder": "例：ジュニア開発者として2年",
+    "educationLabel": "学歴",
+    "educationPlaceholder": "例：コンピュータサイエンス学士",
+    "generateButton": "ロードマップを生成",
+    "analyzing": "分析中...",
+    "strategyTitle": "AI 戦略",
+    "timelineLabel": "タイムライン：{timeline}",
+    "actionPlanTitle": "アクションプラン",
+    "coreSkillsTitle": "コアスキル",
+    "tipTitle": "エキスパートのヒント",
+    "tipSubTitle": "段階的な習得",
+    "awaitingInput": "準備完了",
+    "roadmapWillAppear": "分析後にロードマップが表示されます",
+    "aspirationsTitle": "あなたの志向",
+    "errors": {
+      "noGoal": "キャリア目標を入力してください",
+      "failedToGenerate": "キャリアパスの生成に失敗しました"
+    }
+  },
   "settings": {
     "title": "設定",
     "subtitle": "設定をカスタマイズ",
@@ -809,6 +836,30 @@
       },
       "emptyTitle": "まだ外連絡メッセージがありません。",
       "emptyDescription": "設定で外連絡メッセージ生成を有効にしてから、履歴書をカスタマイズしてください。"
+    }
+  },
+  "advisor": {
+    "title": "AI キャリアアドバイザー",
+    "subtitle": "次のプロフェッショナルの節目を見つける",
+    "currentRoleLabel": "現在の職種",
+    "currentRolePlaceholder": "例：フロントエンドエンジニア",
+    "skillsLabel": "現在のスキル",
+    "skillsPlaceholder": "React, TypeScript, CSS...",
+    "experienceLabel": "経験",
+    "experiencePlaceholder": "例：1年",
+    "educationLabel": "学歴",
+    "educationPlaceholder": "例：コンピュータサイエンス学士",
+    "generateButton": "アドバイスを取得",
+    "analyzing": "分析中...",
+    "stepsTitle": "次のキャリアステップ",
+    "skillsToLearnTitle": "習得すべきスキル：",
+    "timelineTitle": "推定タイムライン：",
+    "summaryTitle": "要約：",
+    "awaitingInput": "自分の道を見つける",
+    "recommendationsWillAppear": "分析後にここに推奨事項が表示されます",
+    "errors": {
+      "noRole": "現在の職種を入力してください",
+      "failedToGenerate": "キャリアアドバイスの生成に失敗しました"
     }
   },
   "errors": {
